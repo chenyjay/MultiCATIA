@@ -1,0 +1,12 @@
+Sub CATMain()
+    Dim objShell, objFolder, docPath
+    Set objShell = CreateObject("Shell.Application") ' 创建Shell对象    
+    Set objFolder = objShell.NameSpace(5) ' 获取命名空间（CSIDL_PERSONAL = 5 表示"我的文档"）  
+    If Not objFolder Is Nothing Then
+        docPath = objFolder.Self.Path        
+    Else
+        Exit Sub
+    End If
+    Dim params()
+    CATIA.SystemService.ExecuteScript docPath & "\MultiCATIA\MultiCATIA.catvba", 2, "InitializeCATIA", "Main", params
+End Sub

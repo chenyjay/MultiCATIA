@@ -1,0 +1,14 @@
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\RunMacroDirect.ahk
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\MultiCATIA.catvba
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\MultiCATIA.catvbs
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\AutoHotkey32.exe
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\CSharpTest.exe.config
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\CSharpTest.exe
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\CSharpTest.pdb
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\CSharpTest.csproj.AssemblyReference.cache
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\Interop.INFITF.dll
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\CSharpTest.csproj.ResolveComReference.cache
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\CSharpTest.csproj.CoreCompileInputs.cache
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\CSharpTest.exe
+d:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\obj\Release\CSharpTest.pdb
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\CSharpTest\bin\Release\CforCATIA_64.dll

@@ -1,0 +1,16 @@
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.vbproj.AssemblyReference.cache
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\CforCATIA_64.dll
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\RunMacroDirect.ahk
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\MultiCATIA.catvba
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\MultiCATIA.catvbs
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\AutoHotkey32.exe
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\VB.NetTest.exe.config
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\VB.NetTest.exe
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\VB.NetTest.pdb
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\bin\Debug\VB.NetTest.xml
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\Interop.INFITF.dll
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.vbproj.ResolveComReference.cache
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.vbproj.CoreCompileInputs.cache
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.exe
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.xml
+D:\Documents\WeiyunSync\Visual Studio\连接多进程CATIA\ConnectCATIA\CforCATIA\VB.NetTest\obj\Debug\VB.NetTest.pdb
