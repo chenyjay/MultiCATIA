@@ -1,10 +1,10 @@
 # ConnectMultiCATIA
 Demo Video: 
 
-  https://youtu.be/FjJP3E2kWTg?si=1ssw2wEPVUOujkov
-
+  [https://youtu.be/FjJP3E2kWTg?si=1ssw2wEPVUOujkov](https://youtu.be/UFgfFF4EnaE)
   
-  https://www.bilibili.com/video/BV1xVuR6sEuZ/
+  【[免费]C#/VB.NET/Python/ VB6.0/Autohotkey 等外部com方式开发插件 同时支持多进程/多开/多版本CATIA V5】 https://www.bilibili.com/video/BV1xVuR6sEuZ/?share_source=copy_web&vd_source=ff408703398502819e8cb5740f417d38
+  
 ## Project Introduction
 
 ConnectMultiCATIA is a set of multi-language calling examples for the CforCATIA.dll library. It demonstrates how to attach to the foreground CATIA window from external processes written in C#, VB.NET, Python, AutoHotkey, and VB6, and how to read common properties such as the installation path and the active document. These examples are intended for developers who need to drive or inspect multiple CATIA sessions from outside the CATIA process. The runtime DLL itself is closed-source but free for unlimited use without registration or license keys; this repository only publishes the test-project source code so that users can verify the integration in their preferred language.
