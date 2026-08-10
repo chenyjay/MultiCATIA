@@ -21,7 +21,7 @@ Theoretically, this method can connect to CATIA even when its COM interface is n
 | `AhkTest/` | AutoHotkey v2 | GUI example |
 | `VB6.0Test/` | VB6 | GUI example |
 
-## Licensing & Contact
+## Free Licensing & Contact
 
 These test projects are provided as open-source examples. The CforCATIA runtime DLL remains closed-source but is now free for unlimited use without registration, license keys, or trial limits. If you have questions, feature requests, or need custom integration support, feel free to contact the author via email.
 
@@ -60,7 +60,7 @@ ConnectMultiCATIA 是 CforCATIA.dll 的多语言调用示例集合，用于演�
 | `AhkTest/` | AutoHotkey v2 | 窗体调用示例 |
 | `VB6.0Test/` | VB6 | 窗体调用示例 |
 
-## 授权与联系方式
+## 免费授权与联系方式
 
 本仓库中的测试项目作为开源示例提供。CforCATIA 运行时 DLL 仍为闭源组件，但现已免费开放无限期使用，无需授权码、注册或试用限制。如有问题、功能需求或需要定制集成支持，欢迎通过邮箱联系作者。
 
