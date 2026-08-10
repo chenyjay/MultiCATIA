@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """CforCATIA_64.dll Python 调用示例
 Example: retrieve the COM object of the frontmost CATIA window and read common properties."""
 
@@ -10,10 +10,6 @@ import win32com.client
 
 
 _DLL = None  # 全局 DLL 句柄
-
-# 测试用授权码：姓名|电话|日期|天数|RSA签名
-TEST_LICENSE = ""
-
 
 def GetCATIA():
     """获取最前 CATIA 的 COM 对象（返回：对象, 原始指针）
@@ -57,18 +53,6 @@ def get_document():
         _DLL.CforCATIA_ReleaseObject(ptr)                # 释放 DLL 侧 AddRef 的指针
 
 
-def verify_license():
-    """授权码验证自测：把 license 变量改成你要验证的授权码即可
-    License verification self-test: set the license variable to the license you want to verify."""
-    license = TEST_LICENSE  # <-- 手动改成要验证的授权码
-    print("授权码验证自测\nLicense verification self-test:")
-    data = license.encode("utf-8") if license else None
-    rc = _DLL.CforCATIA_InitWithLicense(data)
-    err = _get_last_error()
-    print(f"  rc={rc} err={err!r}")
-    print()
-
-
 def main():
     """命令行 Demo 入口
     Command-line demo entry point."""
@@ -83,9 +67,9 @@ def main():
         pass                                             # 已初始化则忽略
 
     print("初始化 CforCATIA_64.dll ...\nInitializing CforCATIA_64.dll ...")
-    # 设置未授权/试用弹窗中显示的联系方式，发布时替换成你的邮箱
-    _DLL.CforCATIA_SetContactEmail("1027160374@qq.com".encode("utf-8"))
-    verify_license()                                     # 授权码自测（可手动增删授权码）
+    rc = _DLL.CforCATIA_Init()                           # 初始化 DLL（无需授权码）
+    if rc != 0:
+        _wait_exit(f"初始化失败\nInitialization failed: {_get_last_error()}")
 
     print("=" * 40)
     print("CATIA 多进程连接命令行 Demo\nCATIA Multi-Process Connection Command-Line Demo")
@@ -131,9 +115,6 @@ def _load_dll():
     _DLL.CforCATIA_Init.restype = ctypes.c_int             # 声明返回值类型
     _DLL.CforCATIA_Init.argtypes = []                      # 声明参数类型
 
-    _DLL.CforCATIA_InitWithLicense.restype = ctypes.c_int  # 带授权码初始化
-    _DLL.CforCATIA_InitWithLicense.argtypes = [ctypes.c_char_p]
-
     _DLL.CforCATIA_GetFrontmostObject.restype = ctypes.c_int
     _DLL.CforCATIA_GetFrontmostObject.argtypes = [ctypes.POINTER(ctypes.c_void_p)]
 
@@ -145,9 +126,6 @@ def _load_dll():
 
     _DLL.CforCATIA_Shutdown.restype = None
     _DLL.CforCATIA_Shutdown.argtypes = []
-
-    _DLL.CforCATIA_SetContactEmail.restype = ctypes.c_int
-    _DLL.CforCATIA_SetContactEmail.argtypes = [ctypes.c_char_p]
 
 
 def _get_last_error():

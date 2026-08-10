@@ -1,15 +1,12 @@
-﻿Imports System                          ' 基础类型
+Imports System                          ' 基础类型
 Imports System.Runtime.InteropServices  ' Declare、Marshal
 Imports System.Text                     ' UTF-8 解码
 Imports INFITF                          ' CATIA COM 接口
 
 Module Program                          ' VB.NET 调用 CforCATIA_64.dll 示例
 
-    ' 初始化 DLL（不带授权码，会触发未授权弹窗）
+    ' 初始化 DLL（无需授权码，免费无限期使用）
     Declare Function CforCATIA_Init Lib "CforCATIA_64.dll" () As Integer
-
-    ' 带授权码初始化 DLL
-    Declare Function CforCATIA_InitWithLicense Lib "CforCATIA_64.dll" (license() As Byte) As Integer
 
     ' 获取最前 CATIA 的 IDispatch* 指针
     Declare Function CforCATIA_GetFrontmostObject Lib "CforCATIA_64.dll" (ByRef ptr As IntPtr) As Integer
@@ -19,9 +16,6 @@ Module Program                          ' VB.NET 调用 CforCATIA_64.dll 示例
 
     ' 取 DLL 侧最后一次错误信息
     Declare Function CforCATIA_GetLastError Lib "CforCATIA_64.dll" (buffer() As Byte, bufferSize As Integer) As Integer
-
-    ' 设置弹窗中显示的联系方式（传入 UTF-8 字节数组）
-    Declare Function CforCATIA_SetContactEmail Lib "CforCATIA_64.dll" (email() As Byte) As Integer
 
     ' 释放 DLL 资源
     Declare Sub CforCATIA_Shutdown Lib "CforCATIA_64.dll" ()
@@ -41,15 +35,8 @@ Module Program                          ' VB.NET 调用 CforCATIA_64.dll 示例
         Return TryCast(obj, Application)             ' 强转
     End Function
 
-    ' 测试用授权码：姓名|电话|日期|天数|RSA签名
-    ReadOnly TestLicense As String = "张三|13800138000|20260714|7|WcjxYIyBYdh7A8ajwcfDj1rb3Cadv2h3J1ILrTchhByEQWY38L3zLhmYncpN/SRuydSHkbX5WTbHjmXoZ4gUChs1FomDgx6ZiY+EW2Cu3cSPO1SJHi4p4hlyADJTQ5zfIm5nhjnRoQWNgUs/fAdMAf5Ov1qJspAxXwLNqND3nrTP1eEKKJc/qrFfvJxRgwK2Er35CgE/4oumTE4tBFpkG43WDUqXCFhFApJUwwIkqvdXvIjXRq8jAtD0CKjCbVBSD/9J5g5nkOZTRpxyU8vBvteThex820iG93sp4Bt6xemRS3mcLIsXXNB43MNxGDt3oo/Oy80GynuCJdf7TGGDDg=="
-
     Sub Main()
-        ' 设置未授权/试用弹窗中显示的联系方式，发布时替换成你的邮箱
-        CforCATIA_SetContactEmail(Encoding.UTF8.GetBytes("1027160374@qq.com"))
-
-        Dim licenseBytes() As Byte = Encoding.UTF8.GetBytes(TestLicense)
-        If CforCATIA_InitWithLicense(licenseBytes) <> 0 Then  ' 带授权码初始化 DLL
+        If CforCATIA_Init() <> 0 Then  ' 初始化 DLL（无需授权码）
             Console.WriteLine("初始化失败" & vbCrLf & "Initialization failed: " & GetLastErrorText())
             Return
         End If

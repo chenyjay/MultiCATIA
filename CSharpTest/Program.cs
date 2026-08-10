@@ -1,4 +1,4 @@
-﻿using System;                       // 基础类型
+using System;                       // 基础类型
 using System.Runtime.InteropServices;           // DllImport、Marshal
 using System.Text;                  // UTF-8 解码
 using INFITF;                       // CATIA COM 接口
@@ -7,13 +7,9 @@ namespace CSharpTest                // CforCATIA_64.dll 的 C# 调用示例
 {
     class Program
     {
-        // 初始化 DLL（不带授权码，会触发未授权弹窗）
+        // 初始化 DLL（无需授权码，免费无限期使用）
         [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int CforCATIA_Init();
-
-        // 带授权码初始化 DLL
-        [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int CforCATIA_InitWithLicense(byte[] license);
 
         // 获取最前 CATIA 的 IDispatch* 指针
         [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -26,10 +22,6 @@ namespace CSharpTest                // CforCATIA_64.dll 的 C# 调用示例
         // 取 DLL 侧最后一次错误信息
         [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
         static extern int CforCATIA_GetLastError(byte[] buffer, int bufferSize);
-
-        // 设置弹窗中显示的联系方式
-        [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
-        static extern int CforCATIA_SetContactEmail(byte[] email);
 
         // 释放 DLL 资源
         [DllImport("CforCATIA_64.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -52,16 +44,9 @@ namespace CSharpTest                // CforCATIA_64.dll 的 C# 调用示例
             return obj as Application;                  // 强转
         }
 
-        // 测试用授权码：姓名|电话|日期|天数|RSA签名
-        static readonly string TestLicense = "张三|13800138000|20260714|7|WcjxYIyBYdh7A8ajwcfDj1rb3Cadv2h3J1ILrTchhByEQWY38L3zLhmYncpN/SRuydSHkbX5WTbHjmXoZ4gUChs1FomDgx6ZiY+EW2Cu3cSPO1SJHi4p4hlyADJTQ5zfIm5nhjnRoQWNgUs/fAdMAf5Ov1qJspAxXwLNqND3nrTP1eEKKJc/qrFfvJxRgwK2Er35CgE/4oumTE4tBFpkG43WDUqXCFhFApJUwwIkqvdXvIjXRq8jAtD0CKjCbVBSD/9J5g5nkOZTRpxyU8vBvteThex820iG93sp4Bt6xemRS3mcLIsXXNB43MNxGDt3oo/Oy80GynuCJdf7TGGDDg==";
-
         static void Main(string[] args)
         {
-            // 设置未授权/试用弹窗中显示的联系方式，发布时替换成你的邮箱
-            CforCATIA_SetContactEmail(Encoding.UTF8.GetBytes("1027160374@qq.com"));
-
-            byte[] licenseBytes = Encoding.UTF8.GetBytes(TestLicense);
-            if (CforCATIA_InitWithLicense(licenseBytes) != 0)  // 带授权码初始化 DLL
+            if (CforCATIA_Init() != 0)  // 初始化 DLL（无需授权码）
             {
                 Console.WriteLine("初始化失败\nInitialization failed: " + GetLastError());
                 return;

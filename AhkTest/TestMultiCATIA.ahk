@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 ; 根据当前 AutoHotkey 进程位数自动选择 DLL
@@ -6,16 +6,10 @@
 global dllName := (A_PtrSize = 8) ? "CforCATIA_64.dll" : "CforCATIA_32.dll"
 global dllPath := A_ScriptDir "\" dllName
 
-; 测试用授权码：姓名|电话|日期|天数|RSA签名
-global TEST_LICENSE := "黄先森|zedeeeee|20260722|36500|X5euuCKKQ7M62p+7HrGn29RtbpnTcRNZKnfgYcCw0mKUwNFJEWkCVkwurNnNUUyOY7QtD3yK8Yb3hj206oKFZL1DV40jBLyxkycH6q311+B+gp5YjC9wy1+bcyLNj1JiprCPKehEGAhmcwPvODM9Lzr1tnGgd8U5HeBLxLRLHnSUUxah2G3TlPhp/lVBtjBt0ccqg0IPZ3z6rJZWk8Rs4SkCOeD4XypKMShUjZ6ABHVa+Z6Tz2Ogx4JwIh1lYqhnOu1zTCsMCLtoacRp5CiwCGbLbDfJ23lndIKbXtV4lfcYJj3XbdTzUSmyd5kHMOD/L5EVTsVF1uHQL11nLlB5Vw=="
-
 if (!FileExist(dllPath)) {
     MsgBox("找不到 DLL: " dllPath "`n请确保 " dllName " 与本脚本在同一目录。`n`nDLL not found: " dllPath "`nPlease make sure " dllName " is in the same directory as this script.", "错误 / Error", "Icon!")
     ExitApp
 }
-
-; 设置未授权/试用弹窗中显示的联系方式，发布时替换成你的邮箱
-DllCall(dllPath "\CforCATIA_SetContactEmail", "AStr", "1027160374@qq.com", "Cdecl Int")
 
 if (!InitDll()) {
     ExitApp
@@ -108,9 +102,7 @@ GetLastErrorText() {
 }
 
 InitDll() {
-    licenseBuf := Buffer(StrPut(TEST_LICENSE, "UTF-8"))
-    StrPut(TEST_LICENSE, licenseBuf, "UTF-8")
-    rc := DllCall(dllPath "\CforCATIA_InitWithLicense", "Ptr", licenseBuf, "Cdecl Int")
+    rc := DllCall(dllPath "\CforCATIA_Init", "Cdecl Int")
     if (rc != 0) {
         MsgBox("初始化失败: " GetLastErrorText() "`nInitialization failed: " GetLastErrorText(), "错误 / Error", "Icon!")
         return false

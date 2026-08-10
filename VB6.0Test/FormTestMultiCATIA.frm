@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form FormTestMultiCATIA
-   Caption         =   "VB6 调用 CforCATIA_32.dll 测试 / VB6 Test for CforCATIA_32.dll"
+   Caption         =   "VB6 测试 CforCATIA_32.dll 示例 / VB6 Test for CforCATIA_32.dll"
    ClientHeight    =   3735
    ClientLeft      =   120
    ClientTop       =   465
@@ -51,10 +51,9 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Declare Function CforCATIA_InitWithLicense Lib "CforCATIA_32.dll" (ByRef license As Byte) As Long
+Private Declare Function CforCATIA_Init Lib "CforCATIA_32.dll" () As Long
 Private Declare Function CforCATIA_GetFrontmostObject Lib "CforCATIA_32.dll" (ByRef ptr As Long) As Long
 Private Declare Function CforCATIA_GetLastError Lib "CforCATIA_32.dll" (ByRef buffer As Byte, ByVal bufferSize As Long) As Long
-Private Declare Function CforCATIA_SetContactEmail Lib "CforCATIA_32.dll" (ByVal email As String) As Long
 Private Declare Sub CforCATIA_ReleaseObject Lib "CforCATIA_32.dll" (ByVal ptr As Long)
 Private Declare Sub CforCATIA_Shutdown Lib "CforCATIA_32.dll" ()
 
@@ -62,9 +61,6 @@ Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef Desti
 Private Declare Function WideCharToMultiByte Lib "kernel32" (ByVal CodePage As Long, ByVal dwFlags As Long, ByVal lpWideCharStr As Long, ByVal cchWideChar As Long, ByVal lpMultiByteStr As Long, ByVal cbMultiByte As Long, ByVal lpDefaultChar As Long, ByVal lpUsedDefaultChar As Long) As Long
 
 Private Const CP_UTF8 As Long = 65001
-
-' 测试用授权码：姓名|电话|日期|天数|RSA签名
-Private Const TEST_LICENSE As String = "张三|13800138000|20260714|7|WcjxYIyBYdh7A8ajwcfDj1rb3Cadv2h3J1ILrTchhByEQWY38L3zLhmYncpN/SRuydSHkbX5WTbHjmXoZ4gUChs1FomDgx6ZiY+EW2Cu3cSPO1SJHi4p4hlyADJTQ5zfIm5nhjnRoQWNgUs/fAdMAf5Ov1qJspAxXwLNqND3nrTP1eEKKJc/qrFfvJxRgwK2Er35CgE/4oumTE4tBFpkG43WDUqXCFhFApJUwwIkqvdXvIjXRq8jAtD0CKjCbVBSD/9J5g5nkOZTRpxyU8vBvteThex820iG93sp4Bt6xemRS3mcLIsXXNB43MNxGDt3oo/Oy80GynuCJdf7TGGDDg=="
 
 Private Function StringToUtf8(s As String) As Byte()
     Dim cb As Long
@@ -109,11 +105,8 @@ Private Function GetCATIA() As Object
 End Function
 
 Private Sub Form_Load()
-    Dim b() As Byte
     Dim rc As Long
-    CforCATIA_SetContactEmail "1027160374@qq.com"
-    b = StringToUtf8(TEST_LICENSE)
-    rc = CforCATIA_InitWithLicense(b(0))
+    rc = CforCATIA_Init()
     If rc <> 0 Then
         MsgBox "初始化失败 / Initialization failed: " & GetLastErrorText(), vbExclamation, "错误 / Error"
     End If
@@ -132,7 +125,7 @@ Private Sub cmdPath_Click()
     End If
     On Error Resume Next
     txtResult.Text = "Path 环境变量 / Path environment variable = " & catia.SystemService.Environ("Path")
-    If Err.Number <> 0 Then txtResult.Text = "读取 Path 失败 / Failed to read Path: " & Err.Description
+    If Err.Number <> 0 Then txtResult.Text = "获取 Path 失败 / Failed to read Path: " & Err.Description
     On Error GoTo 0
 End Sub
 
@@ -145,7 +138,7 @@ Private Sub cmdDoc_Click()
     End If
     On Error Resume Next
     txtResult.Text = "当前文档 / Current document = " & catia.ActiveDocument.FullName
-    If Err.Number <> 0 Then txtResult.Text = "读取 Document 失败 / Failed to read Document: " & Err.Description
+    If Err.Number <> 0 Then txtResult.Text = "获取 Document 失败 / Failed to read Document: " & Err.Description
     On Error GoTo 0
 End Sub
 
