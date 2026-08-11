@@ -1,6 +1,6 @@
 # ConnectMultiCATIA
 
-<p align="center"><b>English</b> · <a href="README.zh.md">中文</a></p>
+**English** · [中文](README.zh.md)
 
 Demo Video:
 
