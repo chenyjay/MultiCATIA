@@ -1,5 +1,7 @@
 # ConnectMultiCATIA
 
+<p align="center"><a href="README.md">English</a> · <b>中文</b></p>
+
 演示视频：
 
   [https://youtu.be/FjJP3E2kWTg?si=1ssw2wEPVUOujkov](https://youtu.be/UFgfFF4EnaE)

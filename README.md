@@ -1,4 +1,7 @@
 # ConnectMultiCATIA
+
+<p align="center"><b>English</b> · <a href="README.zh.md">中文</a></p>
+
 Demo Video:
 
   [https://youtu.be/FjJP3E2kWTg?si=1ssw2wEPVUOujkov](https://youtu.be/UFgfFF4EnaE)
