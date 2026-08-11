@@ -24,7 +24,7 @@ ConnectMultiCATIA 是 CforCATIA.dll 的多语言调用示例集合，用于演�
 | `AhkTest/` | AutoHotkey v2 | 窗体调用示例 |
 | `VB6.0Test/` | VB6 | 窗体调用示例 |
 
-## 授权与联系方式
+## 免费使用与联系方式
 
 本仓库中的测试项目作为开源示例提供，采用 MIT 许可证，详见 [LICENSE](LICENSE)。CforCATIA 运行时 DLL 仍为闭源组件，但现已免费开放无限期使用，无需授权码、注册或试用限制。如有问题、功能需求或需要定制集成支持，欢迎通过邮箱联系作者。
 
